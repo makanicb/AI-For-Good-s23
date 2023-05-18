@@ -9,7 +9,7 @@ def compute_probs(neg,pos):
 def cond_prob(table, evidence, evidence_value, target, target_value):
   t_subset = table[table[target] == target_value]
   e_list = t_subset[evidence]
-  return sum([v==evidence_value for v in e_list])/len(e_list) #I skipped the ternary operator because sum will treat true=1 and false=0 by default
+  return sum([v==evidence_value for v in e_list])/len(e_list) + 0.01 #I skipped the ternary operator because sum will treat true=1 and false=0 by default
 
 def cond_probs_product(table, evidence_values, target_column, target_val):
   evidence_columns = table.columns[:-1]
