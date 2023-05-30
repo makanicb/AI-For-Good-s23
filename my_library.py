@@ -38,7 +38,7 @@ def metrics (pred_act):
   assert isinstance(pred_act, list), f"Expected pred_act to be a list but found {type(pred_act)}."
   assert all([isinstance(i, list) for i in pred_act]), f"Expected pred_act to be a list of lists."
   assert all([len(i)==2 for i in pred_act]), f"Expected pred_act to be a list of pairs"
-  assert all([all([isinstance(j, int) for j in i]) for i in pred_act]), f"Expected pred_act to be a list of pairs of ints"
+  assert all([all([isinstance(j, (int,float)) for j in i]) for i in pred_act]), f"Expected pred_act to be a list of pairs of ints"
   assert all([all([j >= 0 for j in i]) for i in pred_act]), f"Expected values of pred_act to be greater than equal to zero"
   #print(pred_act)
   tn = sum([list(pair)==[0,0] for pair in pred_act])
